@@ -1,0 +1,40 @@
+<html>
+<head>
+
+<script src="../sample/closure-library/closure/goog/base.js"></script>
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/map.js"></script>
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/message.js"></script>
+
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/binary/constants.js"></script>
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/binary/arith.js"></script>
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/binary/utils.js"></script>
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/binary/decoder.js"></script>
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/binary/encoder.js"></script>
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/binary/writer.js"></script>
+<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/binary/reader.js"></script>
+<!--<script src="E:/workspace/protobuf-js-3.0.0/protobuf-3.0.0/js/commonjs/export.js"></script>-->
+
+
+
+
+<script src="testbuf.js"></script>
+</head>
+<body>
+
+<script>
+	//var BYTES = new Uint8Array([1, 2, 8, 9]);
+	//var BYTES_B64 = goog.crypt.base64.encodeByteArray(BYTES);
+	var tbf = new proto.protobuf.testBuf();
+	tbf.setName("tom");
+	tbf.setAge(11);
+	//tbf.setOptionalBytes(BYTES_B64);
+	var bytes = tbf.serializeBinary();
+	console.log(bytes);
+	
+	var tbf2 = proto.protobuf.testBuf.deserializeBinary(bytes);
+	console.log(tbf2);
+	
+</script>
+
+</body>
+</html>
